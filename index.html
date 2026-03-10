@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invitación | Mikhaela Arleth</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rosa: #f7c8d8;
+      --rosa-fuerte: #e89ab6;
+      --rosa-suave: #fff4f8;
+      --dorado: #d8b15b;
+      --crema: #fffdf8;
+      --texto: #6f6670;
+      --verde: #b8d6cb;
+      --blanco: #ffffff;
+      --sombra: 0 18px 45px rgba(218, 170, 192, 0.22);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: 'Nunito', sans-serif;
+      color: var(--texto);
+      background:
+        radial-gradient(circle at top left, rgba(247, 200, 216, 0.85), transparent 25%),
+        radial-gradient(circle at bottom right, rgba(216, 177, 91, 0.16), transparent 18%),
+        linear-gradient(180deg, #fff8fb 0%, #fffdf8 55%, #fff8fb 100%);
+      overflow-x: hidden;
+    }
+
+    .sparkles, .sparkles::before, .sparkles::after {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      content: "";
+      background-image:
+        radial-gradient(circle, rgba(216,177,91,.55) 1.2px, transparent 1.2px),
+        radial-gradient(circle, rgba(232,154,182,.4) 1px, transparent 1px);
+      background-size: 120px 120px, 180px 180px;
+      background-position: 0 0, 40px 60px;
+      opacity: .35;
+      animation: twinkle 14s linear infinite;
+    }
+
+    .sparkles::before { opacity: .2; animation-duration: 20s; }
+    .sparkles::after { opacity: .12; animation-duration: 26s; }
+
+    @keyframes twinkle {
+      from { transform: translateY(0); }
+      to { transform: translateY(-40px); }
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 18px 50px;
+      position: relative;
+    }
+
+    .card {
+      width: min(100%, 760px);
+      background: rgba(255,255,255,.84);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,.9);
+      border-radius: 34px;
+      box-shadow: var(--sombra);
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before,
+    .card::after {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(247,200,216,.9), rgba(247,200,216,0));
+      z-index: 0;
+    }
+
+    .card::before { top: -60px; left: -60px; }
+    .card::after { bottom: -70px; right: -70px; }
+
+    .inner {
+      position: relative;
+      z-index: 1;
+      border: 1px solid rgba(232,154,182,.24);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.93));
+      padding: 26px 20px 34px;
+      text-align: center;
+    }
+
+    .top-row {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .balloon {
+      width: 48px;
+      height: 60px;
+      border-radius: 50% 50% 45% 45%;
+      position: relative;
+      box-shadow: inset -6px -8px 18px rgba(0,0,0,.06);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .balloon:nth-child(1){ background:#f6c2d5; }
+    .balloon:nth-child(2){ background:#fff5e3; animation-delay: .4s; }
+    .balloon:nth-child(3){ background:#d9b25c; animation-delay: .8s; }
+    .balloon:nth-child(4){ background:#f0d7e2; animation-delay: 1.2s; }
+
+    .balloon::after {
+      content:"";
+      position:absolute;
+      bottom:-10px;
+      left:50%;
+      width:1px;
+      height:22px;
+      background: rgba(120,120,120,.35);
+      transform: translateX(-50%);
+    }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .eyebrow {
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: var(--rosa-fuerte);
+      font-weight: 700;
+      margin-top: 8px;
+    }
+
+    h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(46px, 9vw, 82px);
+    line-height: .95;
+    color: #d784a2;
+    margin: 12px 0 10px;
+    font-weight: 400;
+
+    text-shadow:0 0 10px rgba(232,154,182,.5);
+    }
+
+    .subtitle {
+      font-size: clamp(18px, 3vw, 24px);
+      margin: 0 auto 20px;
+      max-width: 540px;
+    }
+
+    .moon-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 16px 0 12px;
+    }
+
+    .moon {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #fff6cf, #f1dea4);
+      position: relative;
+      box-shadow: inset -16px -6px 24px rgba(205, 172, 72, .14), 0 10px 25px rgba(216,177,91,.18);
+      clip-path: ellipse(42% 50% at 38% 50%);
+    }
+
+    .message {
+      max-width: 430px;
+      margin: 14px auto 26px;
+      font-size: clamp(19px, 3vw, 28px);
+      line-height: 1.45;
+    }
+
+    .message strong { color: #c97d99; }
+
+    .details {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin: 26px 0;
+    }
+
+    .detail {
+      background: linear-gradient(180deg, #fffafb, #fff);
+      border: 1px solid rgba(232,154,182,.22);
+      border-radius: 22px;
+      padding: 18px 14px;
+      box-shadow: 0 8px 20px rgba(232,154,182,.08);
+    }
+
+    .detail .label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--rosa-fuerte);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .detail .value {
+      font-size: 17px;
+      font-weight: 700;
+      color: #6f5d66;
+    }
+
+    .countdown {
+      margin: 12px 0 28px;
+      padding: 18px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(247,200,216,.18), rgba(216,177,91,.12));
+      border: 1px solid rgba(216,177,91,.18);
+    }
+
+    .countdown h2 {
+      margin: 0 0 12px;
+      font-size: 20px;
+      color: #b97996;
+    }
+
+    .timer {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      text-align: center;
+    }
+
+    .unit {
+      background: rgba(255,255,255,.88);
+      border-radius: 18px;
+      padding: 12px 6px;
+      box-shadow: 0 8px 20px rgba(0,0,0,.04);
+    }
+
+    .unit span {
+      display: block;
+      font-size: clamp(26px, 5vw, 38px);
+      font-weight: 800;
+      color: #c985a0;
+    }
+
+    .unit small {
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-size: 11px;
+      color: #8f7d86;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .btn {
+      appearance: none;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      border-radius: 999px;
+      padding: 14px 24px;
+      font-weight: 800;
+      font-size: 15px;
+      transition: .25s ease;
+      box-shadow: 0 10px 24px rgba(216,177,91,.16);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #e89ab6, #d8b15b);
+      color: white;
+    }
+  
+
+    .btn-secondary {
+      background: white;
+      color: #b97a96;
+      border: 1px solid rgba(232,154,182,.25);
+    }
+
+    .btn:hover { transform: translateY(-2px) scale(1.01); }
+
+    .footer-note {
+      margin-top: 22px;
+      font-size: 14px;
+      opacity: .8;
+    }
+
+  .foto-bebe{
+    width:230px;
+    height:230px;
+    object-fit:cover;
+    object-position:50% 20%;
+    border-radius:50%;
+
+    border:6px solid white;
+    outline:4px solid #f3c2d3;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+
+    animation:zoomFoto 6s ease-in-out infinite;
+    }
+
+    @keyframes zoomFoto{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.05)}
+    }
+
+
+    .daisy{
+    position:absolute;
+    font-size:26px;
+    animation:floatDaisy 6s ease-in-out infinite;
+    }
+
+    .daisy:nth-child(1){top:-10px;left:30px}
+    .daisy:nth-child(2){top:40px;right:-10px;animation-delay:1s}
+    .daisy:nth-child(3){bottom:-10px;left:40px;animation-delay:2s}
+    .daisy:nth-child(4){bottom:20px;right:30px;animation-delay:3s}
+
+    @keyframes floatDaisy{
+    0%,100%{
+    transform:translateY(0) rotate(-5deg);
+    }
+    50%{
+    transform:translateY(-10px) rotate(5deg);
+    }
+    }
+
+
+    .sparkle{
+    position:absolute;
+    width:6px;
+    height:6px;
+    background:#fff;
+    border-radius:50%;
+    box-shadow:0 0 10px #fff,0 0 20px #ffd9e6;
+    animation:sparkle 2s infinite ease-in-out;
+    }
+
+    @keyframes sparkle{
+    0%,100%{
+    opacity:0;
+    transform:scale(0.8) rotate(0deg);
+    }
+    50%{
+    opacity:1;
+    transform:scale(1.2) rotate(20deg);
+    }
+    }
+
+    
+
+    .petals span {
+      position: absolute;
+      display: block;
+      width: 18px;
+      height: 28px;
+      background: linear-gradient(180deg, #f8b3cf, #df78a7);
+      border-radius: 100% 0 100% 0;
+      opacity: .75;
+      animation: petalFall linear infinite;
+    }
+
+    .petals span:nth-child(1){ left: 8%; top: -5%; animation-duration: 11s; }
+    .petals span:nth-child(2){ left: 24%; top: -8%; animation-duration: 14s; animation-delay: 2s; }
+    .petals span:nth-child(3){ left: 78%; top: -6%; animation-duration: 12s; animation-delay: 1s; }
+    .petals span:nth-child(4){ left: 90%; top: -9%; animation-duration: 15s; animation-delay: 3s; }
+
+    @keyframes petalFall {
+      from { transform: translateY(-10vh) rotate(0deg); }
+      to { transform: translateY(110vh) rotate(320deg); }
+    }
+
+    @media (max-width: 720px) {
+      .card { padding: 14px; border-radius: 26px; }
+      .inner { padding: 20px 14px 28px; }
+      .details { grid-template-columns: 1fr; }
+      .timer { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <audio id="player" loop playsinline>
+  <source src="https://raw.githubusercontent.com/creativasme/musi/main/vacaloca1.MP3" type="audio/mpeg">
+</audio>
+  <div class="sparkles"></div>
+  <div class="petals"></div>
+
+  <section class="hero">
+    <div class="card">
+      <div class="inner">
+        <div class="top-row">
+          <div class="balloon"></div>
+          <div class="balloon"></div>
+          <div class="balloon"></div>
+          <div class="balloon"></div>
+        </div>
+
+        <div class="eyebrow">Primer añito</div>
+        <h1>Mikhaela Arleth</h1>
+        <p class="subtitle">Te invitamos a celebrar un día lleno de ternura, alegría y momentos inolvidables.</p>
+
+        <div class="moon-wrap" style="position:relative;width:230px;margin:auto">
+
+<span class="daisy">🌼</span>
+<span class="daisy">🌼</span>
+<span class="daisy">🌼</span>
+<span class="daisy">🌼</span>
+
+<span class="sparkle" style="top:20px;left:10px"></span>
+<span class="sparkle" style="top:40px;right:20px"></span>
+<span class="sparkle" style="bottom:30px;left:20px"></span>
+<span class="sparkle" style="bottom:10px;right:30px"></span>
+
+<img src="mika.jpg" class="foto-bebe">
+
+</div>
+
+        <div class="message">
+          La vida nos ha sorprendido con un regalo muy especial…<br>
+          y queremos celebrar el <strong>primer añito</strong> de nuestra princesa contigo.
+        </div>
+
+        <div class="details">
+          <div class="detail">
+            <div class="label">Fecha</div>
+            <div class="value">26 de marzo del 2026</div>
+          </div>
+          <div class="detail">
+            <div class="label">Hora</div>
+            <div class="value">3:30 p. m.</div>
+          </div>
+          <div class="detail">
+            <div class="label">Lugar</div>
+            <div class="value">El Gran Salón</div>
+          </div>
+          <div class="detail">
+            <div class="label">Dirección</div>
+            <div class="value">Calle Manco Cápac 398 - Virú</div>
+          </div>
+        </div>
+
+        <div class="countdown">
+          <h2>Faltan</h2>
+          <div class="timer" id="timer">
+            <div class="unit"><span id="days">00</span><small>días</small></div>
+            <div class="unit"><span id="hours">00</span><small>horas</small></div>
+            <div class="unit"><span id="minutes">00</span><small>min</small></div>
+            <div class="unit"><span id="seconds">00</span><small>seg</small></div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="https://wa.me/51999999999?text=Hola%2C%20confirmo%20mi%20asistencia%20al%20cumplea%C3%B1os%20de%20Mikhaela%20Arleth">Confirmar asistencia</a>
+          <a class="btn btn-secondary" href="https://maps.google.com/?q=Calle%20Manco%20Capac%20398%20Viru" target="_blank" rel="noopener noreferrer">Ver ubicación</a>
+        </div>
+
+        <div class="footer-note">Con mucho cariño, te esperamos para compartir este momento tan especial ✨</div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const eventDate = new Date('2026-03-26T15:30:00-05:00').getTime();
+    const $ = (id) => document.getElementById(id);
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = eventDate - now;
+
+      if (diff <= 0) {
+        $('days').textContent = '00';
+        $('hours').textContent = '00';
+        $('minutes').textContent = '00';
+        $('seconds').textContent = '00';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      $('days').textContent = String(days).padStart(2, '0');
+      $('hours').textContent = String(hours).padStart(2, '0');
+      $('minutes').textContent = String(minutes).padStart(2, '0');
+      $('seconds').textContent = String(seconds).padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+
+  <script>
+    const petals = document.querySelector(".petals");
+
+    for(let i=0;i<40;i++){
+      let petal=document.createElement("span");
+      petal.style.left=Math.random()*100+"vw";
+      petal.style.animationDuration=(8+Math.random()*10)+"s";
+      petal.style.opacity=Math.random();
+      petals.appendChild(petal);
+    }
+    </script>
+
+    <script>
+    const audio = document.getElementById("player");
+
+    function startMusic(){
+      audio.play();
+      document.removeEventListener("click", startMusic);
+    }
+
+    document.addEventListener("click", startMusic);
+    </script>
+
+</body>
+</html>
