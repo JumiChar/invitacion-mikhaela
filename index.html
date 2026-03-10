@@ -346,6 +346,94 @@
     }
     }
 
+#intro{
+position:fixed;
+inset:0;
+background:linear-gradient(180deg,#fff8fb,#fffdf8);
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:9999;
+text-align:center;
+}
+
+.intro-petals{
+position:absolute;
+inset:0;
+overflow:hidden;
+pointer-events:none;
+}
+
+.intro-petals span{
+position:absolute;
+top:-10vh;
+width:18px;
+height:28px;
+background:linear-gradient(180deg,#f8b3cf,#df78a7);
+border-radius:100% 0 100% 0;
+opacity:.8;
+animation:introFall linear infinite;
+}
+
+
+.intro-petals span{
+position:absolute;
+top:-10vh;
+width:18px;
+height:28px;
+background:linear-gradient(180deg,#f8b3cf,#df78a7);
+border-radius:100% 0 100% 0;
+opacity:.8;
+animation:introFall linear infinite;
+}
+
+@keyframes introFall{
+0%{
+transform:translateY(-10vh) rotate(0deg);
+}
+100%{
+transform:translateY(110vh) rotate(320deg);
+}
+}
+
+.intro-card{
+background:white;
+padding:40px 30px;
+border-radius:30px;
+box-shadow:0 20px 60px rgba(0,0,0,.15);
+max-width:350px;
+animation:introFade 1.2s ease;
+}
+
+.intro-title{
+font-family:'Great Vibes',cursive;
+font-size:48px;
+color:#d784a2;
+margin:10px 0 20px;
+}
+
+#openInvite{
+background:linear-gradient(135deg,#e89ab6,#d8b15b);
+border:none;
+padding:16px 28px;
+border-radius:50px;
+color:white;
+font-size:16px;
+font-weight:700;
+cursor:pointer;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+transition:.25s;
+}
+
+#openInvite:hover{
+transform:scale(1.05);
+}
+
+@keyframes introFade{
+from{opacity:0;transform:translateY(30px)}
+to{opacity:1}
+}
+
 
     .sparkle{
     position:absolute;
@@ -400,6 +488,24 @@
   </style>
 </head>
 <body>
+  <div id="intro">
+<div class="intro-petals"></div>
+<div class="intro-card">
+
+<h2>Estás invitado</h2>
+
+<p>al primer añito de</p>
+
+<h1 class="intro-title">Mikhaela Arleth</h1>
+
+<button id="openInvite">
+✨ Abrir invitación
+</button>
+
+</div>
+
+</div>
+
   <audio id="player" loop playsinline>
   <source src="https://raw.githubusercontent.com/creativasme/musi/main/vacaloca1.MP3" type="audio/mpeg">
 </audio>
@@ -471,7 +577,7 @@
         </div>
 
         <div class="actions">
-          <a class="btn btn-primary" href="https://wa.me/51999999999?text=Hola%2C%20confirmo%20mi%20asistencia%20al%20cumplea%C3%B1os%20de%20Mikhaela%20Arleth">Confirmar asistencia</a>
+          <a class="btn btn-primary" href="https://wa.me/51978998822?text=Hola%2C%20confirmo%20mi%20asistencia%20al%20cumplea%C3%B1os%20de%20Mikhaela%20Arleth">Confirmar asistencia</a>
           <a class="btn btn-secondary" href="https://maps.google.com/?q=Calle%20Manco%20Capac%20398%20Viru" target="_blank" rel="noopener noreferrer">Ver ubicación</a>
         </div>
 
@@ -525,13 +631,36 @@
 
     <script>
     const audio = document.getElementById("player");
+    const intro = document.getElementById("intro");
+    const openBtn = document.getElementById("openInvite");
 
-    function startMusic(){
-      audio.play();
-      document.removeEventListener("click", startMusic);
-    }
+    openBtn.addEventListener("click", () => {
 
-    document.addEventListener("click", startMusic);
+    audio.play();
+
+    intro.style.transition = "opacity .6s";
+    intro.style.opacity = "0";
+
+    setTimeout(()=>{
+    intro.style.display="none";
+    },600);
+
+    });
+
+
+    const introPetals = document.querySelector(".intro-petals");
+
+for(let i=0;i<30;i++){
+
+let petal = document.createElement("span");
+
+petal.style.left = Math.random()*100+"vw";
+petal.style.animationDuration = (6+Math.random()*8)+"s";
+petal.style.opacity = Math.random();
+
+introPetals.appendChild(petal);
+
+}
     </script>
 
 </body>
